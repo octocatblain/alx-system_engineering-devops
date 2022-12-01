@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo find . -type d chmod 001
+chmod -R 001 ./
