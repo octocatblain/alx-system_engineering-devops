@@ -1,23 +1,23 @@
 #!/usr/bin/env bash
-# Displays numbers from 1 to 20 in addition
+#Displays numbers from 1 to 20 in addition
 
 count=1
 
 while [ $count -le 20 ]
 do
 
-  echo "$count"
+    echo "$count"
 
-  case $count in
+    case $count in
 
-    "4") echo "bad luck from China";;
+        "4") echo "bad luck from China";;
 
-    "9") echo "bad luck from Japan";;
+        "9") echo "bad luck from Japan";;
 
-    "17") echo "bad luck from Italy";;
+        "17") echo "bad luck from Italy";;
 
-  esac
+    esac
 
-  (( count++ ))
+    (( count++ ))
 
 done

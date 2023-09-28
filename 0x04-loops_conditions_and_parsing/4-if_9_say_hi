@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# displays Best School and then Hi on a new line.
+#displays Best School and then Hi on a new line.
 
 count=0
 
@@ -7,16 +7,16 @@ while [ $count -lt 10 ]
 
 do
 
-  if [ $count -eq 9 ]
+    if [ $count -eq 9 ]
 
-  then
+    then
 
-    echo "Hi"
+        echo "Hi"
 
-  fi
+    fi
 
-  echo "Best School"
+    echo "Best School"
 
-  (( count++ ))
+    (( count++ ))
 
 done

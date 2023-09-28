@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Script that displays Best School 10 times
+#Script that displays Best School 10 times
 
 count=0
 
@@ -7,8 +7,8 @@ until [ $count -eq 10 ]
 
 do
 
-  echo "Best School"
+    echo "Best School"
 
-   (( count++ ))
+    (( count++ ))
 
 done
