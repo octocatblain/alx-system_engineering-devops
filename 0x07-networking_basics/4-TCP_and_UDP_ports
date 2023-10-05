@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+# Display listening ports and the processes that own them. Includes listening sockets. 
