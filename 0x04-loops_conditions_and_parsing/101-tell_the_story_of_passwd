@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#parse etc/passwd
+# Parse etc/passwd
 
 fname="/etc/passwd"
 
