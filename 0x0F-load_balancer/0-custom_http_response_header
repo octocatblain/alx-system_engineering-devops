@@ -1,11 +1,8 @@
 #!/usr/bin/env bash
-#to configure a new server
 
 sudo apt-get update
 sudo apt-get -y install nginx
 sudo service nginx start
-sudo sed -i '/location \//a\\tadd_header X-Served-By 187747-web-01;' /etc/nginx/nginx.conf
-sudo nginx -t
-sudo service nginx restart
+sudo sed -i "11i\\\tadd_header X-Served-By $HOSTNAME;" /etc/nginx/nginx.conf
 echo "Hello World!" | sudo tee /usr/share/nginx/html/index.html
-
+sudo service nginx restart
