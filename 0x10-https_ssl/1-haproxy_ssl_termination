@@ -32,6 +32,7 @@ defaults
         errorfile 502 /etc/haproxy/errors/502.http
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
+
 listen 187747-lb-01
         bind *:80
         mode http
@@ -40,3 +41,24 @@ listen 187747-lb-01
         option forwardfor
         server 187747-web-02 100.26.232.7 check
         server 187747-web-01 100.25.118.239 check
+
+# Configuration for SSL
+frontend www-http
+         bind *:80
+         reqadd X-Forwarded-Proto:\ http
+         default_backend www-backend
+
+frontend www-https
+         bind *:443 ssl crt /etc/letsencrypt/live/www.blainmuema.tech/fullchain.pem
+         reqadd X-Forwarded-Proto:\ https
+         acl letsencrypt-acl path_beg /.well-known/acme-challenge/
+         use_backend letsencrypt-backend if letsencrypt-acl
+         default_backend www-backend
+
+backend www-backend
+        redirect scheme https if !{ ssl_fc }
+        server 187747-web-02 100.26.232.7:80 check
+        server 187747-web-01 100.25.118.239:80 check
+
+backend letsencrypt-backend
+        server letsencrypt 127.0.0.1:54321
