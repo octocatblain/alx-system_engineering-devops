@@ -42,7 +42,7 @@ defaults
 
 frontend http_front
          bind *:80
-         bind 0.0.0.0:443 ssl crt /etc/letsencrypt/live/www.blainmuema.tech/fullchain.pem
+         bind 0.0.0.0:443 ssl crt /etc/letsencrypt/live/www.blainmuema.tech/www.blainmuema.tech.pem
          http-request add-header X-Forwarded-Proto https
          http-request redirect scheme https if !{ ssl_fc }
          default_backend http_back
