@@ -10,6 +10,7 @@
 
 - Practice Technical Writing as a Fullstack Developer
 
+<hr>
 ### Task 0. What happens when...
 
 - This question is a classic and still widely used interview question for many types of software engineering position. It is used to assess a candidate’s general knowledge of how the web stack works on top of the internet. One important guideline to begin answering this question is that you should ask your interviewer whether they would like you to focus in on one specific area of the workflow. For a front-end position they may want you to talk at length about how the DOM is rendering. For an SRE position they may want you to go into the load balancing mechanism.
@@ -29,9 +30,9 @@
 - Application server
 - Database
 
-### Task 2: Everything's better with a pretty diagram
+<hr>
+### Task 1: Everything's better with a pretty diagram
 
-- #advanced
 - Add a schema to your blog post illustrating the flow of the request created when you type https://www.google.com in your browser and press Enter.
 
 #### The diagram should show:
