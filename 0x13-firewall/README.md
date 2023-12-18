@@ -8,7 +8,7 @@
 
 - Working with firewalls
 
-![firewall img}(https://s3.amazonaws.com/intranet-projects-files/holbertonschool-sysadmin_devops/284/V1HjQ1Y.png)
+![firewall img](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-sysadmin_devops/284/V1HjQ1Y.png)
 
 #### Firewall meme😄
 
