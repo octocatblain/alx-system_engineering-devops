@@ -1,4 +1,4 @@
-# 0x14. MySQL Project
+# 0x14. MySQL 
 
 - DevOps
 - SysAdmin
