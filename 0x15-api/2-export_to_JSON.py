@@ -5,37 +5,33 @@ import requests
 import sys
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: {} <user_id>".format(sys.argv[0]))
-        sys.exit(1)
-
     user_id = sys.argv[1]
-    try:
-        user_id = int(user_id)
-    except ValueError:
-        print("Error: User ID must be an integer.")
-        sys.exit(1)
 
     url = "https://jsonplaceholder.typicode.com/"
+    
+    user_response = requests.get(url + "users/{}".format(user_id))
+    user_data = user_response.json()
 
-    try:
-        user = requests.get(url + "users/{}".format(user_id)).json()
-        todos = requests.get(url + "todos", params={"userId": user_id}).json()
-    except requests.RequestException as e:
-        print("Error making API request:", e)
-        sys.exit(1)
-
-    if "id" not in user:
+    if "id" not in user_data:
         print("Error: User not found.")
         sys.exit(1)
 
-    username = user.get("username")
+    username = user_data.get("username")
+
+    todos_response = requests.get(url + "todos", params={"userId": user_id})
+    todos_data = todos_response.json()
+
+    user_tasks = {
+        user_id: [
+            {
+                "task": task.get("title"),
+                "completed": task.get("completed"),
+                "username": username
+            } for task in todos_data
+        ]
+    }
 
     with open("{}.json".format(user_id), "w") as jsonfile:
-        json.dump({user_id: [{
-            "task": t.get("title"),
-            "completed": t.get("completed"),
-            "username": username
-        } for t in todos]}, jsonfile)
+        json.dump(user_tasks, jsonfile)
 
-    print("Export successful. File saved as {}.json".format(user_id))
+    print("JSON file exported successfully for USER_ID: {}".format(user_id))
